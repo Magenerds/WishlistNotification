@@ -1,0 +1,137 @@
+<?php
+/**
+ * Copyright (c) 2016 TechDivision GmbH
+ * All rights reserved
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany
+ * For more information see http://www.techdivision.com/
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com
+ */
+
+/**
+ * @category   Magenerds
+ * @package    Magenerds_WishlistNotification
+ * @subpackage view
+ * @author     Florian Sydekum <f.sydekum@techdivision.com>
+ * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @version    ${release.version}
+ * @link       http://www.techdivision.com/
+ */
+
+/**
+ * @var $this \Magenerds\WishlistNotification\Block\Adminhtml\Notification\Edit
+ */
+?>
+<?php
+/** @var $helper Magenerds\WishlistNotification\Helper\Data */
+$helper = $this->helper('Magenerds\WishlistNotification\Helper\Data');
+?>
+<div id="container">
+    <div class="row">
+        <div class="col-m-4">
+            <?php if ($customer = $this->getCustomer()): ?>
+                <h3><?php echo _('Customer information') ?></h3>
+                <span><b><?php echo _('Name:') ?> </b></span><span><?php echo $customer->getName() ?> (<a href="<?php echo $helper->getCustomerEditLink($customer->getId()) ?>" target="_blank"><?php echo _('View customer') ?></a>)</span>
+                <br>
+                <span><b><?php echo _('Email:') ?> </b></span><span><a href="mailto:<?php echo $customer->getEmail() ?>" target="_top"><?php echo $customer->getEmail() ?></a></span>
+
+                <br><br>
+                <h3><?php echo _('Default billing address') ?></h3>
+                <?php echo $this->getBillingAddressHtml() ?>
+            <?php endif; ?>
+        </div>
+        <div class="col-m-4">
+            <?php if ($product = $this->getProduct()): ?>
+                <?php $helper->register('product', $product); ?>
+                <h3><?php echo _('Added Wishlist Item') ?></h3>
+                <?php if (!$product->getId()): ?>
+                    <div class="notification-message message message-warning"><?php echo __('The product is no longer available') ?></div>
+                <?php else: ?>
+                    <span><a href="<?php echo $helper->getProductEditLink($product->getId()) ?>" target="_blank"><?php echo $product->getName() ?></a></span>
+                    <br>
+                    <a href="<?php echo $helper->getProductEditLink($product->getId()) ?>" target="_blank">
+                        <img src="<?php echo $helper->getProductImageSrc($product) ?>">
+                    </a>
+                <?php endif; ?>
+                <br>
+                <span><b>SKU: </b></span><span><?php echo $product->getSku() ?></span>
+                <br>
+                <span><b>Added at: </b></span><span><?php echo $this->getNotification()->getData('added_at'); ?></span>
+                <br>
+                <span><b>Current stock: </b></span><span><?php echo $this->getIsInStockLabel() ?> (Qty: <?php echo $this->getQty() ?>)</span>
+                <br>
+                <?php echo $this->getChildHtml('product.price.final') ?>
+            <?php endif; ?>
+        </div>
+        <div class="col-m-4 admin__scope-old">
+            <h3><?php echo _('Notification status') ?></h3>
+            <div class="switcher" onselectstart='return false;'>
+                <input type="checkbox" id="status-switcher" name="status-switcher" />
+                <label class="switcher-label"
+                       for="status-switcher"
+                       data-text-on="<?php echo __('Checked'); ?>"
+                       data-text-off="<?php echo __('Unchecked'); ?>"
+                       title="<?php echo __('Mark as checked'); ?>"></label>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-m-12 wishlist">
+            <?php if ($wishlist = $this->getWishlist()): ?>
+                <h3><?php echo _("Customer's current wishlist") ?></h3>
+                <?php /** @var $item Magento\Wishlist\Model\Item */ ?>
+                <?php foreach($wishlist->getItemCollection() as $item): ?>
+                    <?php $product = $item->getProduct() ?>
+                    <?php $helper->register('product', $product); ?>
+                    <div class="wishlist-item">
+                        <span><a href="<?php echo $helper->getProductEditLink($product->getId()) ?>" target="_blank"><?php echo $product->getName() ?></a></span>
+                        <br>
+                        <a href="<?php echo $helper->getProductEditLink($product->getId()) ?>" target="_blank">
+                            <img src="<?php echo $helper->getProductImageSrc($product) ?>">
+                        </a>
+                        <br>
+                        <span><b>SKU: </b></span><span><?php echo $product->getSku() ?></span>
+                        <br>
+                        <?php echo $this->getChildHtml('product.price.final') ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="edit-notification" enctype="multipart/form-data" data-form="edit-notification">
+    <?php echo $this->getBlockHtml('formkey')?>
+    <input id="status" name="notification[status]" value="<?php echo $this->getStatus() ?>" class="" type="hidden">
+    <button type="submit" class="hidden"></button>
+</form>
+
+<script>
+require([
+    "jquery",
+    "Magento_Catalog/catalog/type-events",
+    "underscore",
+    "mage/mage",
+    "domReady!"
+], function($, TypeSwitcher){
+    var $form = $('[data-form=edit-notification]');
+    $form.data('typeSwitcher', TypeSwitcher.init());
+
+    $form.mage('form', {
+        handlersData: {
+            save: {}
+        }
+    });
+
+    $('#status-switcher')
+        .prop('checked', $('#status').val() == '1')
+        .trigger('change');
+
+    $('#status-switcher').on('change', function(event) {
+        $('#status').val($(this).prop('checked') ? '1' : '0');
+    });
+});
+</script>

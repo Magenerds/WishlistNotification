@@ -1,0 +1,41 @@
+/**
+ * Copyright (c) 2016 TechDivision GmbH
+ * All rights reserved
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany
+ * For more information see http://www.techdivision.com/
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com
+ */
+
+/**
+ * @category   Magenerds
+ * @package    Magenerds_WishlistNotification
+ * @subpackage view
+ * @author     Florian Sydekum <f.sydekum@techdivision.com>
+ * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @version    ${release.version}
+ * @link       http://www.techdivision.com/
+ */
+.wishlist-item {
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.price-label {
+    font-weight: bold;
+}
+
+.special-price {
+    display: block;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+
+.notification-message {
+    margin: 0px 20px 0px 0px;
+}

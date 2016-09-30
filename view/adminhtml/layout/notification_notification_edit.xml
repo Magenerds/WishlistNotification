@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2016 TechDivision GmbH
+ * All rights reserved
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany
+ * For more information see http://www.techdivision.com/
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com
+ */
+
+/**
+ * @category   Magenerds
+ * @package    Magenerds_WishlistNotification
+ * @subpackage view
+ * @author     Florian Sydekum <f.sydekum@techdivision.com>
+ * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @version    ${release.version}
+ * @link       http://www.techdivision.com/
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magenerds_WishlistNotification::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenerds\WishlistNotification\Block\Adminhtml\Notification\Edit" name="notification_edit" template="notification/edit.phtml">
+                <block class="Magento\Catalog\Pricing\Render" name="product.price.final">
+                    <arguments>
+                        <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+                        <argument name="price_type_code" xsi:type="string">final_price</argument>
+                        <argument name="zone" xsi:type="string">item_view</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

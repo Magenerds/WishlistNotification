@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2016 TechDivision GmbH
+ * All rights reserved
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany
+ * For more information see http://www.techdivision.com/
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com
+ */
+
+/**
+ * @category   Magenerds
+ * @package    Magenerds_WishlistNotification
+ * @subpackage view
+ * @author     Florian Sydekum <f.sydekum@techdivision.com>
+ * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @version    ${release.version}
+ * @link       http://www.techdivision.com/
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="notification_notification_listing"/>
+        </referenceContainer>
+    </body>
+</page>

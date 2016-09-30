@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright (c) 2016 TechDivision GmbH
+ * All rights reserved
+ *
+ * This product includes proprietary software developed at TechDivision GmbH, Germany
+ * For more information see http://www.techdivision.com/
+ *
+ * To obtain a valid license for using this software please contact us at
+ * license@techdivision.com
+ */
+
+/**
+ * @category   Magenerds
+ * @package    Magenerds_WishlistNotification
+ * @subpackage etc
+ * @author     Florian Sydekum <f.sydekum@techdivision.com>
+ * @copyright  Copyright (c) 2016 TechDivision GmbH (http://www.techdivision.com)
+ * @version    ${release.version}
+ * @link       http://www.techdivision.com/
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Acl/etc/acl.xsd">
+<acl>
+    <resources>
+        <resource id="Magento_Backend::admin">
+            <resource id="Magento_Backend::marketing">
+                <resource id="Magento_Backend::marketing_user_content">
+                    <resource id="Magenerds_WishlistNotification::wishlist_notification" title="Wishlist Notification" sortOrder="10" >
+                        <resource id="Magenerds_WishlistNotification::index" title="Show Grid Wishlist Notification" sortOrder="10" />
+                        <resource id="Magenerds_WishlistNotification::edit" title="Edit Wishlist Notification" sortOrder="20" />
+                        <resource id="Magenerds_WishlistNotification::save" title="Save Wishlist Notification" sortOrder="30" />
+                        <resource id="Magenerds_WishlistNotification::delete" title="Delete Wishlist Notification" sortOrder="40" />
+                    </resource>
+                </resource>
+            </resource>
+        </resource>
+    </resources>
+</acl>
+</config>
