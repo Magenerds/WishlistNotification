@@ -18,7 +18,7 @@
  * @link       http://www.techdivision.com/
  */
  -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Magenerds_WishlistNotification::wishlist_notification" title="Wishlist Notification" module="Magenerds_WishlistNotification" sortOrder="100" parent="Magento_Backend::marketing_user_content" action="notification/notification" resource="Magenerds_WishlistNotification::wishlist_notification"/>
     </menu>
