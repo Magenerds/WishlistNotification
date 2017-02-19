@@ -52,17 +52,18 @@ class MassDelete extends \Magento\Backend\App\Action
     protected $_model = 'Magenerds\WishlistNotification\Model\Notification';
 
     /**
-     * @var \Magenerds\WishlistNotification\Logger\Logger
+     * @var \Psr\Log\LoggerInterface
      */
     protected $_logger;
 
     /**
+     * MassDelete constructor.
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magenerds\WishlistNotification\Logger\Logger $logger
+        \Psr\Log\LoggerInterface $logger
     ) {
         parent::__construct($context);
         $this->_logger = $logger;

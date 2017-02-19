@@ -32,18 +32,20 @@ class Save extends \Magento\Backend\App\Action
     protected $_notificationFactory;
 
     /**
-     * @var \Magenerds\WishlistNotification\Logger\Logger
+     * @var \Psr\Log\LoggerInterface
      */
     protected $_logger;
 
     /**
+     * Save constructor.
      * @param Action\Context $context
      * @param \Magenerds\WishlistNotification\Model\NotificationFactory $notificationFactory
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magenerds\WishlistNotification\Model\NotificationFactory $notificationFactory,
-        \Magenerds\WishlistNotification\Logger\Logger $logger
+        \Psr\Log\LoggerInterface $logger
     ) {
         $this->_notificationFactory = $notificationFactory;
         $this->_logger = $logger;

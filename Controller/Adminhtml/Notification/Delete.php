@@ -32,18 +32,20 @@ class Delete extends \Magento\Backend\App\Action
     protected $_notificationFactory;
 
     /**
-     * @var \Magenerds\WishlistNotification\Logger\Logger
+     * @var \Psr\Log\LoggerInterface
      */
     protected $_logger;
 
     /**
+     * Delete constructor.
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository
+     * @param NotificationFactory $notificationFactory
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         NotificationFactory $notificationFactory,
-        \Magenerds\WishlistNotification\Logger\Logger $logger
+        \Psr\Log\LoggerInterface $logger
     ) {
         parent::__construct($context);
         $this->_notificationFactory = $notificationFactory;

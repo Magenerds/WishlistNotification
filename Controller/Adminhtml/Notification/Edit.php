@@ -30,7 +30,7 @@ class Edit extends \Magento\Backend\App\Action
     protected $_notificationFactory;
 
     /**
-     * @var \Magenerds\WishlistNotification\Logger\Logger
+     * @var \Psr\Log\LoggerInterface
      */
     protected $_logger;
 
@@ -40,15 +40,17 @@ class Edit extends \Magento\Backend\App\Action
     protected $_resultPageFactory;
 
     /**
+     * Edit constructor.
      * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Controller\Adminhtml\Product\Builder $productBuilder
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param \Magenerds\WishlistNotification\Model\NotificationFactory $notificationFactory
+     * @param \Psr\Log\LoggerInterface $logger
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magenerds\WishlistNotification\Model\NotificationFactory $notificationFactory,
-        \Magenerds\WishlistNotification\Logger\Logger $logger
+        \Psr\Log\LoggerInterface $logger
     ) {
         parent::__construct($context);
         $this->_resultPageFactory = $resultPageFactory;

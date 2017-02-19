@@ -29,7 +29,7 @@ use Magento\Framework\Controller\ResultFactory;
 class MassStatus extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Magenerds\WishlistNotification\Logger\Logger
+     * @var \Psr\Log\LoggerInterface
      */
     protected $_logger;
 
@@ -39,12 +39,14 @@ class MassStatus extends \Magento\Backend\App\Action
     protected $_action;
 
     /**
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository
+     * MassStatus constructor.
+     * @param Action\Context $context
+     * @param \Psr\Log\LoggerInterface $logger
+     * @param \Magenerds\WishlistNotification\Model\Notification\Action $action
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
-        \Magenerds\WishlistNotification\Logger\Logger $logger,
+        \Psr\Log\LoggerInterface $logger,
         \Magenerds\WishlistNotification\Model\Notification\Action $action
     ) {
         parent::__construct($context);
