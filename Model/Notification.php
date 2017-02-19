@@ -31,6 +31,6 @@ class Notification extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Magenerds\WishlistNotification\Model\Resource\Notification');
+        $this->_init('Magenerds\WishlistNotification\Model\ResourceModel\Notification');
     }
 }

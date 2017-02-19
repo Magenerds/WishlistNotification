@@ -16,11 +16,11 @@
  * @link       http://www.techdivision.com/
  * @author     Florian Sydekum <f.sydekum@techdivision.com>
  */
-namespace Magenerds\WishlistNotification\Model\Resource\Notification;
+namespace Magenerds\WishlistNotification\Model\ResourceModel\Notification;
 
 /**
  * Class Collection
- * @package Magenerds\WishlistNotification\Model\Resource\Notification
+ * @package Magenerds\WishlistNotification\Model\ResourceModel\Notification
  */
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
@@ -31,6 +31,6 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Magenerds\WishlistNotification\Model\Notification', 'Magenerds\WishlistNotification\Model\Resource\Notification');
+        $this->_init('Magenerds\WishlistNotification\Model\Notification', 'Magenerds\WishlistNotification\Model\ResourceModel\Notification');
     }
 }

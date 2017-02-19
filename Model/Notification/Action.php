@@ -31,13 +31,13 @@ class Action extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Magenerds\WishlistNotification\Model\Resource\Notification');
+        $this->_init('Magenerds\WishlistNotification\Model\ResourceModel\Notification');
     }
 
     /**
      * Retrieve resource instance wrapper
      *
-     * @return \Magenerds\WishlistNotification\Model\Resource\Notification
+     * @return \Magenerds\WishlistNotification\Model\ResourceModel\Notification
      */
     protected function _getResource()
     {

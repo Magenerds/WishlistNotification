@@ -18,7 +18,7 @@
  */
 namespace Magenerds\WishlistNotification\Ui\DataProvider;
 
-use Magenerds\WishlistNotification\Model\Resource\Notification\CollectionFactory;
+use Magenerds\WishlistNotification\Model\ResourceModel\Notification\CollectionFactory;
 
 /**
  * Class NotificationGridDataProvider

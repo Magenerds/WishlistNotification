@@ -42,7 +42,7 @@ class MassDelete extends \Magento\Backend\App\Action
      *
      * @var string
      */
-    protected $_collection = 'Magenerds\WishlistNotification\Model\Resource\Notification\Collection';
+    protected $_collection = 'Magenerds\WishlistNotification\Model\ResourceModel\Notification\Collection';
 
     /**
      * Page model

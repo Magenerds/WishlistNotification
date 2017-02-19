@@ -16,11 +16,11 @@
  * @link       http://www.techdivision.com/
  * @author     Florian Sydekum <f.sydekum@techdivision.com>
  */
-namespace Magenerds\WishlistNotification\Model\Resource;
+namespace Magenerds\WishlistNotification\Model\ResourceModel;
 
 /**
  * Class Notification
- * @package Magenerds\WishlistNotification\Model\Resource
+ * @package Magenerds\WishlistNotification\Model\ResourceModel
  */
 class Notification extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
