@@ -29,7 +29,7 @@ class NotificationGridDataProvider extends \Magento\Ui\DataProvider\AbstractData
     /**
      * Notification collection
      *
-     * @var \Magenerds\WishlistNotification\Model\Resource\Notification\Collection
+     * @var \Magenerds\WishlistNotification\Model\ResourceModel\Notification\Collection
      */
     protected $_collection;
 
@@ -76,7 +76,7 @@ class NotificationGridDataProvider extends \Magento\Ui\DataProvider\AbstractData
     }
 
     /**
-     * @return \Magenerds\WishlistNotification\Model\Resource\Notification\Collection
+     * @return \Magenerds\WishlistNotification\Model\ResourceModel\Notification\Collection
      */
     public function getCollection()
     {
